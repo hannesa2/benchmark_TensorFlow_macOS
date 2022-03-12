@@ -1,0 +1,25 @@
+name: PullRequest
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  buildTest:
+    name: Build & Test JDK ${{ matrix.java_version }}
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Exctract data
+        run: |
+          unzip data/case_20211030/x.zip -d  data/case_20211030
+          unzip data/case_20211030/y.zip -d  data/case_20211030
+      - name: Install
+        run: ./install.sh
+      - name: Run benchmark
+        run: ./run_BENCHMARK.sh
