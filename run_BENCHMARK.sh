@@ -1,14 +1,12 @@
-
-
-for i in {0..4}
+for i in {0..1}
 do echo [BENCHMARK $i]
 
-python Train.py -n "neural_networks/CV_net_Benchmark512.py" \
-                -t "data/dataset_training.csv" \
-                -v "data/dataset_validation.csv" \
-                -o "results" \
-                --update_val_metrics_for_epoch
+  python Train.py -n "neural_networks/CV_net_Benchmark512.py" \
+                  -t "data/dataset_training.csv" \
+                  -v "data/dataset_validation.csv" \
+                  -o "results" \
+                  --update_val_metrics_for_epoch
 
-sleep 300   # wait 5 minutes to cool down
+  echo "wait some seconds"
+  sleep 10   # wait 10 seconds
 done
-

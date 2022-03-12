@@ -1,5 +1,3 @@
-
-
 for /l %%n in (0,1,4) do (
 echo [Benchmark %%n]
 
